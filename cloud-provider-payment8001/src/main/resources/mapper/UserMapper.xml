@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.was.dao.UserDao">
+
+    <insert id="create" parameterType="com.was.entitys.TbUser" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_user(name,idcard,phone) values(#{name},#{idcard},#{phone});
+
+    </insert>
+
+
+<!--    <resultMap id="BaseResultMap" type="com.was.entitys.TbUser">-->
+<!--        <id column="id" property="id" jdbcType="INTEGER"/>-->
+<!--        <id column="name" property="name" jdbcType="VARCHAR"/>-->
+<!--        <id column="idcard" property="id_card" jdbcType="VARCHAR"/>-->
+<!--        <id column="phone" property="phone" jdbcType="VARCHAR"/>-->
+<!--    </resultMap>-->
+    <select id="getTbUserById" parameterType="integer" resultType="com.was.entitys.TbUser" >
+        select * from tb_user where id=#{id};
+
+
+    </select>
+</mapper>
